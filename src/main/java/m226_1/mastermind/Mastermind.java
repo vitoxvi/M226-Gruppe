@@ -29,7 +29,7 @@ public class Mastermind {
             Computercode[i] = Colors[x];
         };
         System.out.println("Computercode generated: ****" );
-        //System.out.println(Computercode);
+        System.out.println(Computercode);
     }
 
     void readCode() {
@@ -62,14 +62,11 @@ public class Mastermind {
 
     void checkGame () {
            CheckCombinations(Computercode, Usercode);
-           System.out.println("right Color: " + rightPosition );
-           System.out.println("right Position: " + rightColor);
+           System.out.println("right Color: " + rightColor );
+           System.out.println("right Position: " + rightPosition);
 
         if (rightPosition == 4) {
-            System.out.println("You guessed the secret code. It was: ");
-            System.out.println(Computercode);
-            System.out.println("Tries: ");
-            System.out.println(tries);
+            System.out.println("You guessed the secret code in " +tries + " tries. It was " + Arrays.toString(Computercode));
         } else {
             rightPosition = 0;
             rightColor = 0;
