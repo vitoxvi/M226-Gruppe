@@ -27,17 +27,40 @@ class KontoTest {
     }
 
     @Test
-    void einzahlen() {
+    void einzahlenStandardFall() {
         k.einzahlen(100);
         assertEquals(k.getSaldo(), 200);
     }
 
     @Test
-    void abheben() {
+    void einzahlenNegativeZahlen() {
+        k.einzahlen(-100);
+        assertEquals(k.getSaldo(), 100);
+    }
+
+    @Test
+    void einzahlenNull() {
+        k.einzahlen(0);
+        assertEquals(k.getSaldo(), 100);
+    }
+
+
+    @Test
+    void abhebenStandardFall() {
         k.abheben(50);
         assertEquals(k.getSaldo(), 48);
-        k.abheben(-10);
-        assertEquals(k.getSaldo(), 48);
+    }
+
+    @Test
+    void abhebenNegativeZahlen() {
+        k.abheben(-50);
+        assertEquals(k.getSaldo(), 100);
+    }
+
+    @Test
+    void abhebenNull() {
+        k.abheben(0);
+        assertEquals(k.getSaldo(), 100);
     }
 
     @Test

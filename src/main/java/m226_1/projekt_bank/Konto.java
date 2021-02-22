@@ -23,7 +23,9 @@ public class Konto {
     }
 
     public void einzahlen(double amount){
-        this.saldo += amount;
+        if (amount > 0){
+            this.saldo += amount;
+        }
     }
 
     public void abheben(double amount){
