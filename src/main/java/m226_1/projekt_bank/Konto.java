@@ -1,35 +1,39 @@
 package m226_1.projekt_bank;
 
 public class Konto {
+    // Klassenvariable
+    public static final String ISO_KONTO_NORM_NUMMER = "127390";
+    // Instanzvariablen
     private double saldo, zinssatz;
-    private Kunde Inhaber;
 
-    public Konto( double zinssatz, Kunde inhaber) {
+    // Konstruktor(en)
+    public Konto(double saldo, double zinssatz) {
+        this.saldo = saldo;
         this.zinssatz = zinssatz;
+    }
+
+    public Konto(double zinssatz){
         this.saldo = 0;
-        this.Inhaber = inhaber;
-
+        this.zinssatz = zinssatz;
     }
 
-    public Konto (double Zinssatz, double Saldo) {
-        this.zinssatz = Zinssatz;
-        this.saldo= Saldo;
-        this.Inhaber =  new Kunde("Deafualt", "dummy");
-    }
-
-
+    // Methoden
     public double getSaldo(){
         return this.saldo;
     }
 
     public void einzahlen(double amount){
-        this.saldo += amount;
+        if (amount > 0){
+            this.saldo += amount;
+        }
     }
 
     public void abheben(double amount){
-        this.saldo -= amount;
-        // Geld abheben kostet 2
-        this.saldo -= 2;
+        if (amount > 0){
+            this.saldo -= amount;
+            // Geld abheben kostet 2
+            this.saldo -= 2;
+        }
     }
 
     public void verzinsen(int tage){
