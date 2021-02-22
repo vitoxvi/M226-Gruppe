@@ -11,13 +11,11 @@ public class Konto {
 
     }
 
-    public Konto (double Zinssatz) {
+    public Konto (double Zinssatz, double Saldo) {
         this.zinssatz = Zinssatz;
-        this.saldo= 0;
+        this.saldo= Saldo;
         this.Inhaber =  new Kunde("Deafualt", "dummy");
     }
-
-
 
 
     public double getSaldo(){
