@@ -5,6 +5,7 @@ public class Konto {
     public static final String ISO_KONTO_NORM_NUMMER = "127390";
     // Instanzvariablen
     private double saldo, zinssatz;
+    private Kunde inhaber;
 
     // Konstruktor(en)
     public Konto(double saldo, double zinssatz) {

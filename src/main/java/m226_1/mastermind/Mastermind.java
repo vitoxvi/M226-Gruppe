@@ -1,7 +1,6 @@
 package m226_1.mastermind;
 
-import javax.sound.midi.Soundbank;
-import java.awt.*;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;

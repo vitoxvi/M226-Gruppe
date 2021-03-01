@@ -23,49 +23,63 @@ class KontoTest {
 
     @Test
     void getSaldo() {
-        assertEquals(k.getSaldo(), 100);
+        assertEquals( k.getSaldo(), 100);
     }
 
-    @Test
-    void einzahlenStandardFall() {
+  @Test
+    void EinzahlungPositiv() {
         k.einzahlen(100);
-        assertEquals(k.getSaldo(), 200);
-    }
+        assertEquals(k.getSaldo(),200 );
+  }
 
-    @Test
-    void einzahlenNegativeZahlen() {
+  @Test
+    void EinzahlungNegativ() {
         k.einzahlen(-100);
         assertEquals(k.getSaldo(), 100);
-    }
+  }
 
-    @Test
-    void einzahlenNull() {
+  @Test
+    void EinzahlungNull() {
         k.einzahlen(0);
         assertEquals(k.getSaldo(), 100);
-    }
+  }
 
-
-    @Test
-    void abhebenStandardFall() {
+  @Test
+    void AbhebenPositiv() {
         k.abheben(50);
         assertEquals(k.getSaldo(), 48);
-    }
+  }
 
-    @Test
-    void abhebenNegativeZahlen() {
+  @Test
+    void AbhebenNegativ() {
         k.abheben(-50);
         assertEquals(k.getSaldo(), 100);
-    }
+  }
 
-    @Test
-    void abhebenNull() {
+  @Test
+    void AbhebenNull() {
         k.abheben(0);
         assertEquals(k.getSaldo(), 100);
-    }
+  }
 
-    @Test
-    void verzinsen() {
+  @Test
+    void VerzinseEinJahr() {
         k.verzinsen(365);
         assertEquals(k.getSaldo(), 101);
-    }
+  }
+
+  @Test
+    void VerzinseEinTag() {
+        k.verzinsen(1);
+        double zins = (100 * 0.01 / 356 * 1);
+        assertEquals(k.getSaldo(), 100 +zins, 0.01);
+
+  }
+
+  @Test
+    void VerzinseNUll () {
+        k.verzinsen(0);
+        assertEquals(k.getSaldo(),100);
+  }
+
 }
